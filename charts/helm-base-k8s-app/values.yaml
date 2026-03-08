@@ -1,0 +1,80 @@
+# Configurações gerais
+replicaCount: 1
+nameOverride: ""
+fullnameOverride: ""
+
+# Configuração da Imagem
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: "" # Sobrescrito pelo valor da aplicação
+
+imagePullSecrets: []
+
+# Service Account
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+# Variáveis de ambiente (vazio por padrão)
+env: []
+
+# Segurança no nível do Pod
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  fsGroup: 2000
+
+# Segurança no nível do Contêiner
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+      - ALL
+
+# Configuração de Rede Interna
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: http
+
+# Ingress (Desligado por padrão)
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts: []
+  tls: []
+
+# Recursos computacionais (Boas práticas pedem limites definidos)
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
+
+# Probes de Saúde (Desligados no chart base para evitar falhas se a app não configurar a rota)
+livenessProbe:
+  enabled: false
+  path: /healthz
+  port: http
+readinessProbe:
+  enabled: false
+  path: /ready
+  port: http
+
+# Auto Scaling
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
+
+# Regras de agendamento
+nodeSelector: {}
+tolerations: []
+affinity: {}
