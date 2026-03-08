@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  base-k8s-app:
+  - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2026-03-08T01:50:27.472750731Z"
+    description: Um Helm chart genérico e reutilizável para aplicações Kubernetes
+    digest: b3f2343670e2e87e2f5ca61b77f721a0f3b0fe9ea8919b2d5ef2926765c0d51d
+    name: base-k8s-app
+    type: application
+    urls:
+    - https://github.com/wesleysouza/helm-charts/releases/download/base-k8s-app-0.1.1/base-k8s-app-0.1.1.tgz
+    version: 0.1.1
+generated: "2026-03-08T01:50:27.472756782Z"
