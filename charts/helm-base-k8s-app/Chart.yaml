@@ -3,4 +3,4 @@ name: base-k8s-app
 description: Um Helm chart genérico e reutilizável para aplicações Kubernetes
 type: application
 version: 0.1.0
-appVersion: "1.0.0"
+appVersion: "1.0.1"
