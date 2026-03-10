@@ -30,9 +30,6 @@ podSecurityContext:
 securityContext:
   allowPrivilegeEscalation: false
   readOnlyRootFilesystem: true
-  capabilities:
-    drop:
-      - ALL
 
 # Configuração de Rede Interna
 service:
