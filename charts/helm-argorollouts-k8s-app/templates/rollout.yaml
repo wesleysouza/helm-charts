@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: {{ include "meu-app.fullname" . }}
+  labels:
+    {{- include "meu-app.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "meu-app.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "meu-app.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+  strategy:
+    canary:
+      stableService: {{ include "meu-app.stableServiceName" . }}
+      canaryService: {{ include "meu-app.canaryServiceName" . }}
+      trafficRouting:
+        nginx:
+          stableIngress: {{ include "meu-app.fullname" . }}
+      steps:
+        {{- toYaml .Values.rollout.steps | nindent 8 }}
