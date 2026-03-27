@@ -3,6 +3,17 @@ entries:
   argorollouts-k8s-app:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-03-27T01:54:50.054992381Z"
+    description: Um Helm chart genérico e reutilizável para aplicações argorollouts
+      Kubernetes
+    digest: 388b62e695e3ac7a63cbdfd5455c01b6a996c424d4ffe3d6a56b9a4847508943
+    name: argorollouts-k8s-app
+    type: application
+    urls:
+    - https://github.com/wesleysouza/helm-charts/releases/download/argorollouts-k8s-app-0.0.4/argorollouts-k8s-app-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-03-27T01:18:56.083402891Z"
     description: Um Helm chart genérico e reutilizável para aplicações argorollouts
       Kubernetes
@@ -65,4 +76,4 @@ entries:
     urls:
     - https://github.com/wesleysouza/helm-charts/releases/download/base-k8s-app-0.1.1/base-k8s-app-0.1.1.tgz
     version: 0.1.1
-generated: "2026-03-27T01:18:56.08341853Z"
+generated: "2026-03-27T01:54:50.055020033Z"
