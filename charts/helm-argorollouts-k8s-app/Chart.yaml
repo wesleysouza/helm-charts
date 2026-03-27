@@ -2,5 +2,5 @@ apiVersion: v2
 name: argorollouts-k8s-app
 description: Um Helm chart genérico e reutilizável para aplicações argorollouts Kubernetes
 type: application
-version: 0.0.2
+version: 0.0.3
 appVersion: "1.0.0"
